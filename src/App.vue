@@ -32,7 +32,7 @@
   export default {
     name: 'app',
     data() {
-      return { msg: 'WELCOME' }
+      return { msg: 'WELCOME 么么哒' }
     }
   }
 </script>
