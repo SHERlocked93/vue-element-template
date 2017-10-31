@@ -1,6 +1,6 @@
 <template>
   <div>
-    404 Not Found ！~
+    <img src='@/assets/404_Images/404.png' alt='404 Not Found'>
   </div>
 </template>
 

@@ -1,4 +1,4 @@
-# vue-element-scada-expand
+# vue-element-template
 
 > Vue demo from Q.Y
 
@@ -17,11 +17,18 @@ npm run build
 # build for production and view the bundle analyzer report
 npm run build --report
 
-# run e2e tests
-npm run e2e
+# run build dll-plugin and pack packaging
+npm run build:dll
 
 # run all tests
 npm test
 ```
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+## 打包
+请先生成dll-plugin包：
+```bash
+npm run build --report
+```
+
