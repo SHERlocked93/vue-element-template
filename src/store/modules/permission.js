@@ -1,45 +1,45 @@
-/* eslint-disable */
-import { constantRouterMap } from '@/router/index'
+import { asyncRouterMap, constantRouterMap } from '@/router/index'
 
-// todo 合并权限树
+/**
+ * 根据 route 的 path 从permission中递归过滤异步路由表，返回符合用户角色权限的路由表
+ * @param asyncRouterMap 需要权限控制的模块
+ * @param permission 权限配置
+ */
+function filterAsyncRouter(asyncRouterMap, permission) {
+  return asyncRouterMap.filter((route, index, array) => {
+    const routePermission = permission.filter((perm) => route.path === perm.path)[0]
+    if (routePermission.show) {
+      if (route.children && route.children.length) {
+        route.children = filterAsyncRouter(route.children, routePermission.children)
+      }
+      if (routePermission.props) {
+        route.props = routePermission.props
+      }
+      return true
+    } else return false
+  })
+}
 
 const permission = {
   state: {
-    routers: constantRouterMap
+    routers: constantRouterMap,
+    addRouters: []
   },
   mutations: {
     SET_ROUTERS: (state, routers) => {
-      state.routers = routers
+      state.addRouters = routers.concat(
+        [{ path: '*', redirect: '/404', hidden: true }]
+      )
+      state.routers = constantRouterMap.concat(routers)
     }
   },
   actions: {
-    GenerateRoutes({ commit }, { data }) {
+    GenerateRoutes({ commit }, data) {
       return new Promise(resolve => {
-        commit('SET_ROUTERS', constantRouterMap)
-        // commit('SET_ROUTERS', routerConcat(data, constantRouterMap))
-        routerConcat(data, constantRouterMap)
+        const accessedRouters = filterAsyncRouter(asyncRouterMap, data)
+        commit('SET_ROUTERS', accessedRouters)
         resolve()
       })
-    }
-  }
-}
-
-function routerConcat(data, constantData) {
-  if (data instanceof Array) {
-    data.forEach((currValue, index, array) => {
-      let sameItem = constantData.filter(item => item.path === currValue.path)
-      objConcat(currValue,sameItem)
-    })
-  } else alert("authTree not array")
-}
-
-
-function objConcat(obj, tar) {
-  if (obj instanceof Object) {
-    for (let property in obj) {
-      if (tar.hasOwnProperty(property)) {
-        tar[property] = obj[property]
-      }
     }
   }
 }

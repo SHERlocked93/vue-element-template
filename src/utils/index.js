@@ -38,9 +38,9 @@ export function formatTime(time, option) {
   time = +time * 1000
   const d = new Date(time)
   const now = Date.now()
-
+  
   const diff = (now - d) / 1000
-
+  
   if (diff < 30) {
     return '刚刚'
   } else if (diff < 3600) { // less 1 hour
@@ -55,4 +55,12 @@ export function formatTime(time, option) {
   } else {
     return d.getMonth() + 1 + '月' + d.getDate() + '日' + d.getHours() + '时' + d.getMinutes() + '分'
   }
+}
+
+export function param2Obj(url) {
+  const search = url.split('?')[1]
+  if (!search) {
+    return {}
+  }
+  return JSON.parse('{"' + decodeURIComponent(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g, '":"') + '"}')
 }

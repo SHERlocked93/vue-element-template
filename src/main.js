@@ -11,6 +11,7 @@ import 'element-ui/lib/theme-default/index.css'
 import '@/permission'
 import '@/icons'
 import './assets/icon/iconfont.css'
+import './styles/index.scss'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)

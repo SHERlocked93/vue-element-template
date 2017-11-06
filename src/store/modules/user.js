@@ -1,12 +1,11 @@
-import { getInfo, login, logout, getAuthTree } from '@/api/login'
-import { getToken, removeToken, setToken } from '@/utils/auth'
+import { login, logout } from '@/api/login'
+import { getToken, setToken, removeToken, getName, setName, removeName } from '@/utils/auth'
 
 const user = {
   state: {
     token: getToken(),
-    name: '',
-    avatar: '',
-    authTree: ''
+    name: getName()
+    
   },
   
   mutations: {
@@ -15,12 +14,6 @@ const user = {
     },
     SET_NAME: (state, name) => {
       state.name = name
-    },
-    SET_AVATAR: (state, avatar) => {
-      state.avatar = avatar
-    },
-    SET_AUTHTREE: (state, auth) => {
-      state.authTree = auth
     }
   },
   
@@ -30,24 +23,13 @@ const user = {
       const username = userInfo.username.trim()
       return new Promise((resolve, reject) => {
         login(username, userInfo.password).then(response => {
-          const data = response.data
-          setToken(data.token)
-          commit('SET_TOKEN', data.token)
+          // 登陆成功后token和name放在session里刷新页面仍然可以拿到，放在state里组件间共享
+          const respdata = response
+          setToken(respdata.token)
+          setName(respdata.data.userName)
+          commit('SET_TOKEN', respdata.token)
+          commit('SET_NAME', respdata.data.userName)
           resolve()
-        }).catch(error => {
-          reject(error)
-        })
-      })
-    },
-    
-    // 获取用户信息
-    GetInfo({ commit, state }) {
-      return new Promise((resolve, reject) => {
-        getInfo(state.token).then(response => {
-          const data = response.data
-          commit('SET_NAME', data.name)
-          commit('SET_AVATAR', data.avatar)
-          resolve(response)
         }).catch(error => {
           reject(error)
         })
@@ -59,7 +41,9 @@ const user = {
       return new Promise((resolve, reject) => {
         logout(state.token).then(() => {
           commit('SET_TOKEN', '')
+          commit('SET_NAME', '')
           removeToken()
+          removeName()
           resolve()
         }).catch(error => {
           reject(error)
@@ -71,24 +55,12 @@ const user = {
     FedLogOut({ commit }) {
       return new Promise(resolve => {
         commit('SET_TOKEN', '')
+        commit('SET_NAME', '')
         removeToken()
+        removeName()
         resolve()
       })
-    },
-    
-    // 获取用户权限树
-    GetAuthTree({ commit, state }) {
-      return new Promise((resolve, reject) => {
-        getAuthTree(state.authTree).then(response => {
-          const data = response.data
-          commit('SET_AUTHTREE', data)
-          resolve(response)
-        }).catch(error => {
-          reject(error)
-        })
-      })
     }
-    
   }
 }
 

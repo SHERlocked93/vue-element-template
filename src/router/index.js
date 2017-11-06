@@ -1,8 +1,6 @@
-/* eslint-disable no-unused-vars */
 import Vue from 'vue'
 import Router from 'vue-router'
 import Layout from '@/views/layout/Layout'
-import Homepage from '@/views/homepage.vue'
 
 const _import = require('./_import_' + process.env.NODE_ENV)
 
@@ -15,12 +13,19 @@ export const constantRouterMap = [
     path: '/',
     component: Layout,
     redirect: '/homepage',
-    name: '首页',
     icon: 'zujian',
     hidden: false,
     noDropdown: true,
     children: [{ path: 'homepage', icon: 'zujian', component: _import('homepage'), name: '首页' }]
-  },
+  }
+]
+
+export default new Router({
+  scrollBehavior: () => ({ y: 0 }),
+  routes: constantRouterMap
+})
+
+export const asyncRouterMap = [
   {
     path: '/user',
     component: Layout,
@@ -50,16 +55,10 @@ export const constantRouterMap = [
     redirect: '/dataanalysis/oeeanalysis',
     icon: 'zujian',
     children: [
-      { path: 'oeeanalysis', name: 'OEE分析', icon: 'zujian', component: _import('oeeanalysis') },
-      { path: 'qualityanalysis', name: '质量分析', icon: 'zujian', component: _import('qualityanalysis') }
+      { path: 'oee', name: 'OEE分析', icon: 'zujian', component: _import('oeeAnalysis') },
+      { path: 'oeerank', name: 'OEE排行榜', icon: 'zujian', component: _import('oeeRankList') },
+      { path: 'quality', name: '质量分析', icon: 'zujian', component: _import('qualityAnalysis') },
+      { path: 'qualitysingle', name: ' 单品质量分析', icon: 'zujian', component: _import('qualityAnalysisSingle') }
     ]
   }
-  // { path: '*', redirect: '/404', hidden: true }
 ]
-
-export default new Router({
-  scrollBehavior: () => ({ y: 0 }),
-  routes: constantRouterMap
-})
-
-export const asyncRouterMap = []

@@ -1,4 +1,8 @@
  //覆盖一些element-ui样式 覆盖css样式可在这里添加
+ body {
+   background-color: #f5f5fa;
+ }
+ 
 .el-upload {
   input[type="file"] {
     display: none !important;
