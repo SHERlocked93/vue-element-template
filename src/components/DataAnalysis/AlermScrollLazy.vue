@@ -4,8 +4,7 @@
     <div v-for="item in DataList" :key="item.alarmId" class='al-card'>
       <span class='al-card-item'>{{ item.time }}</span>
       <span class='al-card-item'>{{ item.alarmId }}</span>
-      <span class='al-card-item'>{{ item.message }}</span> --- Level:
-      <span class='al-card-item'>{{ item.alarmLevel }}</span>
+      <span class='al-card-item'>{{ item.message }}</span>
       <button @click='handleCancelAlerm(item.alarmId)' class='al-card-btn'><i class='el-icon-my-turnoff'></i></button>
     </div>
     <Spin size="large" fix v-show="spinShow"></Spin>
