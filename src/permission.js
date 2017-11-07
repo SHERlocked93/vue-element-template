@@ -14,8 +14,9 @@ router.beforeEach((to, from, next) => {
     } else {
       if (store.getters.addRouters.length === 0) {
         store.dispatch('GenerateRoutes', userpermission).then(() => {
+          console.log(store.getters.addRouters, '-------------- addRouters')
           router.addRoutes(store.getters.addRouters) // 动态添加可访问路由表
-          next()
+          next(to.path)                      // 重新导航一遍，确保已经addRoutes完毕
         }).catch(() => {
           store.dispatch('FedLogOut').then(() => {
             next({ path: '/login' })
@@ -33,6 +34,6 @@ router.beforeEach((to, from, next) => {
   }
 })
 
-router.afterEach(() => {
-  NProgress.done()
-})
+router.afterEach(() => NProgress.done())
+
+router.onError(err => console.log(`路由导航出错： ${err}`))
