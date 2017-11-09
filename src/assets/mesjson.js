@@ -3,7 +3,7 @@ export const userpermission = [
     path: '/user',
     show: true,
     children: [
-      { path: 'info', name: '用户信息', show: true },
+      { path: 'info', name: '用户信息', show: true }
     ]
   },
   {
@@ -40,5 +40,15 @@ export const userpermission = [
         show: true,
         props: {}
       }]
+  },
+  {
+    path: '/chart',
+    show: true,
+    children: [
+      { path: 'bar', show: true },
+      { path: 'line', show: true },
+      { path: 'chart1', show: true },
+      { path: 'chart2', show: true }
+    ]
   }
 ]

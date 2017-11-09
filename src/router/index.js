@@ -60,5 +60,18 @@ export const asyncRouterMap = [
       { path: 'quality', name: '质量分析', icon: 'zujian', component: _import('qualityAnalysis') },
       { path: 'qualitysingle', name: ' 单品质量分析', icon: 'zujian', component: _import('qualityAnalysisSingle') }
     ]
+  },
+  {
+    path: '/chart',
+    component: Layout,
+    name: '图表信息',
+    redirect: '/chart/bar',
+    icon: 'zujian',
+    children: [
+      { path: 'bar', name: '柱形图', icon: 'zujian', component: _import('chart/bar') },
+      { path: 'line', name: '折线图', icon: 'zujian', component: _import('chart/line') },
+      { path: 'chart1', name: '图表1', icon: 'zujian', component: _import('chart/chart1') },
+      { path: 'chart2', name: '图表2', icon: 'zujian', component: _import('chart/chart2') }
+    ]
   }
 ]
