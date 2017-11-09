@@ -6,7 +6,7 @@ import { getToken } from '@/utils/auth'
 import { userpermission } from './assets/mesjson'
 
 const whiteList = ['/login'] // 不重定向白名单
-router.beforeEach((to, from, next) => {
+router.beforeEach((to, from, next) => {   // 导航守卫
   NProgress.start()
   if (getToken()) {
     if (to.path === '/login') { // 如果已经有Token了再访问login就跳转
@@ -14,9 +14,8 @@ router.beforeEach((to, from, next) => {
     } else {
       if (store.getters.addRouters.length === 0) {
         store.dispatch('GenerateRoutes', userpermission).then(() => {
-          console.log(store.getters.addRouters, '-------------- addRouters')
           router.addRoutes(store.getters.addRouters) // 动态添加可访问路由表
-          next(to.path)                      // 重新导航一遍，确保已经addRoutes完毕
+          next(to.path)                      // 重新导航一遍，确保已经addRoutes完毕，也可以放在sessionStorage里
         }).catch(() => {
           store.dispatch('FedLogOut').then(() => {
             next({ path: '/login' })
