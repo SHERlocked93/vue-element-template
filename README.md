@@ -1,6 +1,6 @@
 # vue-element-template
 
-> Vue demo from Q.Y
+> 一个简单的vue实例，包括登陆页、权限控制、基于token的身份验证、
 
 ## Build Setup
 
@@ -38,3 +38,10 @@ npm run build --report
 3. Login之后去后台询问该用户的权限列表，与本地的Router配置根据path比对，生成用户有权限的路由列表，并在导航守卫里通过addRouters动态添加到路由里，路由添加好了之后就可以导航到用户首页了
 4. Layout的侧边栏由步骤3里生成的用户有权限的路由表动态生成
 
+## GIF
+
+登陆：
+![登陆GIF](https://github.com/SHERlocked93/vue-element-template/blob/master/src/assets/gifs/Login.gif)
+
+Echart图表
+![Echart图表](https://github.com/SHERlocked93/vue-element-template/blob/master/src/assets/gifs/Charts.gif)
