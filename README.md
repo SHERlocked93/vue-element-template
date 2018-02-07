@@ -1,4 +1,18 @@
 # vue-element-template
+<p align="center">
+	<a href="https://github.com/vuejs/vue">
+		<img src="https://img.shields.io/badge/vue-2.5.2-brightgreen.svg" alt="vue">
+	</a>
+	<a href="https://github.com/ElemeFE/element">
+		<img src="https://img.shields.io/badge/element--ui-2.0.11-brightgreen.svg" alt="element-ui">
+	</a>
+	<a href="https://travis-ci.org/PanJiaChen/vue-element-admin" rel="nofollow">
+		<img src="https://travis-ci.org/PanJiaChen/vue-element-admin.svg?branch=master" alt="Build Status">
+	</a>
+	<a href="https://github.com/PanJiaChen/vue-element-admin/blob/master/LICENSE">
+		<img src="https://img.shields.io/github/license/mashape/apistatus.svg" alt="license">
+	</a>
+</p>
 
 > 一个简单的vue实例，包括登陆页、权限控制、基于token的身份验证 etc..
 
@@ -36,10 +50,52 @@ npm run build --report
 3. Login之后去后台询问该用户的权限列表，与本地的Router配置根据path比对，生成用户有权限的路由列表，并在导航守卫里通过addRouters动态添加到路由里，路由添加好了之后就可以导航到用户首页了
 4. Layout的侧边栏由步骤3里生成的用户有权限的路由表动态生成
 
-## GIF
+## 待办
 
-登陆：
-![登陆GIF](https://github.com/SHERlocked93/vue-element-template/blob/master/src/assets/gifs/Login.gif)
+- [x] 登录/注销
+- [x] 权限验证
+- [x] 动态路由/侧边栏
+- [ ] 多级动态路由/侧边栏
+- [x] 头像上传
+- [x] 密码修改
+- [x] 密码修改
+- [x] 角色配置
+- [x] 角色权限配置
+- [x] 用户配置
+- [ ] 多环境发布
+- [x] 动态面包屑
+- [ ] 国际化多语言
+- [ ] 多种动态换肤
+- [ ] 快捷导航(标签页)
+- [ ] 富文本编辑器
+- [ ] Markdown编辑器
+- [ ] JSON编辑器
+- [ ] Screenfull全屏
+- [ ] 列表拖拽
+- [ ] Svg Sprite 图标
+- [ ] Dashboard
+- [ ] 本地mock数据
+- [ ] Echarts 图表
+- [ ] Clipboard(剪贴复制)
+- [x] 404错误页面
+- [ ] 错误日志
+- [ ] 导出excel
+- [ ] 导出zip
+- [ ] 前端可视化excel
+- [ ] 树形table
+- [ ] Table example
+- [ ] 动态table example
+- [ ] 拖拽table example
+- [ ] 内联编辑table example
+- [ ] Form example
+- [ ] 微信/QQ登录
+- [ ] SplitPane
+- [ ] Dropzone
+- [ ] Sticky
+- [ ] CountTo
+- [ ] Markdown2html
 
-Echart图表
-![Echart图表](https://github.com/SHERlocked93/vue-element-template/blob/master/src/assets/gifs/Charts.gif)
+
+## License
+
+[MIT](https://github.com/PanJiaChen/vue-element-admin/blob/master/LICENSE)
