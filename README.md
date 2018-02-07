@@ -64,6 +64,7 @@ npm run build --report
 - [x] 用户配置
 - [ ] 多环境发布
 - [x] 动态面包屑
+- [ ] websocket通信应用通知
 - [ ] 国际化多语言
 - [ ] 多种动态换肤
 - [ ] 快捷导航(标签页)
@@ -83,17 +84,10 @@ npm run build --report
 - [ ] 导出zip
 - [ ] 前端可视化excel
 - [ ] 树形table
-- [ ] Table example
 - [ ] 动态table example
 - [ ] 拖拽table example
 - [ ] 内联编辑table example
-- [ ] Form example
 - [ ] 微信/QQ登录
-- [ ] SplitPane
-- [ ] Dropzone
-- [ ] Sticky
-- [ ] CountTo
-- [ ] Markdown2html
 
 
 ## License
