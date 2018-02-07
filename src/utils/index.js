@@ -1,7 +1,3 @@
-/**
- * Created by jiachenpan on 16/11/18.
- */
-
 export function parseTime(time, cFormat) {
   if (arguments.length === 0) {
     return null
@@ -63,4 +59,39 @@ export function param2Obj(url) {
     return {}
   }
   return JSON.parse('{"' + decodeURIComponent(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g, '":"') + '"}')
+}
+
+export function cloneObject(obj) {
+  if (typeof obj === 'object') {
+    if (Array.isArray(obj)) {
+      const newArr = []
+      for (let i = 0; i < obj.length; i++) {
+        newArr.push(cloneObject(obj[i]))
+      }
+      return newArr
+    } else {
+      const newObj = {}
+      for (const key in obj) {
+        newObj[key] = cloneObject(obj[key])
+      }
+      return newObj
+    }
+  } else {
+    return obj
+  }
+}
+
+/**
+ * 复制obj2部分属性到obj1中
+ *
+ * @export
+ * @param {Object} obj1 原对象
+ * @param {Object} obj2 被复制属性的对象
+ */
+export function cloneObjProp(obj1, obj2) {
+  Object.keys(obj1).forEach(key => {
+    if (obj2.hasOwnProperty(key)) {
+      obj1[key] = cloneObject(obj2[key])
+    }
+  })
 }

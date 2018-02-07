@@ -1,6 +1,6 @@
 # vue-element-template
 
-> 一个简单的vue实例，包括登陆页、权限控制、基于token的身份验证、
+> 一个简单的vue实例，包括登陆页、权限控制、基于token的身份验证 etc..
 
 ## Build Setup
 
@@ -20,8 +20,6 @@ npm run build --report
 # run build dll-plugin and pack packaging
 npm run build:dll
 
-# run all tests
-npm test
 ```
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

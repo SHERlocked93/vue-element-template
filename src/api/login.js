@@ -1,37 +1,20 @@
-/**
- * 封装 axios 请求
- */
 import fetch from '@/utils/fetch'
 
-export function login(username, password) {
+export function login(userName, password, type) {
   return fetch({
-    url: '/user/nameLogin',
+    url: '/admin/user/namelogin',
     method: 'post',
     data: {
-      username,
-      password
+      userName,
+      password,
+      type
     }
   })
 }
 
-export function getInfo(token) {
+export function logout(userName) {
   return fetch({
-    url: '/user/info',
-    method: 'get',
-    params: { token }
-  })
-}
-
-export function logout() {
-  return fetch({
-    url: '/user/logout',
+    url: '/admin/user/logout',
     method: 'post'
-  })
-}
-
-export function getAuthTree() {
-  return fetch({
-    url: '/authtree',
-    method: 'get'
   })
 }

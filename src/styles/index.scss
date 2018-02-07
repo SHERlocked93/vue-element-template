@@ -1,10 +1,12 @@
-@import './element-ui.scss';
-@import './mixin.scss';
+@import 'element-ui';
+
 body {
+  background-color: #f2f3fd;
+  font-size: 14px;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+  font-family: Microsoft Sans Serif, Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
 }
 
 html {
@@ -15,10 +17,6 @@ html {
 *:before,
 *:after {
   box-sizing: inherit;
-}
-
-[v-cloak] {
-  display: none
 }
 
 a:focus,
@@ -45,7 +43,7 @@ a:hover {
   }
 }
 
-//vue router transition css
+// vue router transition css
 .fade-enter-active,
 .fade-leave-active {
   transition: all .2s ease
@@ -56,20 +54,28 @@ a:hover {
   opacity: 0;
 }
 
-//main-container全局样式
-.app-main{
+// main-container全局样式
+.app-main {
   min-height: 100%
 }
 
 .app-container {
-  padding: 0 20px;
+  padding: 20px;
 }
 
 .svg-icon {
   width: 1em;
   height: 1em;
   vertical-align: -0.15em;
-  fill: currentColor;
   overflow: hidden;
 }
 
+.icon-bold {
+  &[class*=" el-icon-"], [class^=el-icon-] {
+    font-weight: 400;
+  }
+  
+}
+
+// 隐藏具有 v-cloak 属性的元素
+[v-cloak] { display: none }
