@@ -14,7 +14,7 @@
 
 <script>
   import { Navbar, Sidebar, AppMain } from '@/views/Layout'
-  
+
   export default {
     name: 'Layout',
     components: { Navbar, Sidebar, AppMain },
@@ -28,14 +28,14 @@
 
 <style rel="stylesheet/scss" lang="scss" scoped>
   @import "~styles/mixin.scss";
-  
+
   /* 全屏容器，app下的 */
   .app-wrapper {
     @include clearfix;
     position: relative;
     height: 100%;
     width: 100%;
-    
+
     /* 侧边栏-隐藏 */
     &.hideSidebar {
       .sidebar-wrapper {
@@ -53,12 +53,11 @@
       .main-container {
         margin-left: 40px;
         .navbar {
-          width: calc(100% - 40px);
-          /*width: 100%;*/
+          padding-left: 40px;
         }
       }
     }
-    
+
     /* 侧边栏 */
     .sidebar-wrapper {
       width: 198px;
@@ -83,18 +82,13 @@
         }
       }
     }
-    
+
     .main-container {
       min-height: 100%;
-      transition: margin .28s ease-in-out;
+      transition: all .32s ease-in-out;
       margin-left: 198px;
-      display: flex;
-      display: -webkit-flex;
-      flex-direction: column;
-      justify-content: flex-start;
       .navbar {
-        width: calc(100% - 198px);
-        /*width: 100%;*/
+        padding-left: 198px;
       }
     }
   }

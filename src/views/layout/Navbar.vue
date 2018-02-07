@@ -81,11 +81,13 @@
     height: 50px;
     min-width: 600px;
     line-height: 50px;
+    width: 100%;
     color: #000;
     background: #fff;
     box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.10);
     position: fixed;
     top: 0;
+    right: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
