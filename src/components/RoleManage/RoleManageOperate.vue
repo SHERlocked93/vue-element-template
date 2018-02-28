@@ -5,6 +5,7 @@
 */
 
 
+<!--suppress JSCheckFunctionSignatures -->
 <template>
   <div class='role-operate'>
     <!--信息栏-->

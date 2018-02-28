@@ -64,25 +64,23 @@ export function validateSpercialWords(str) {
 }
 
 /**
- * 数字截取 截取6位数字中的前2位 如果后4位都是0
+ * 按钮权限 -> 页面权限
+ * 数字截取 6位数字  中间2位和后两位都不能为00  若满足返回后两位替换为00
  * @param num 数字
  */
 export function num3To2(num) {
-  const reg = /^[0-9]{6}$/
-  return reg.test(num) && num % 100 !== 0
-    ? ~~(num / 100) * 100
-    : false
+  const reg = /^((?:[1-9]\d){2})[1-9]\d$/
+  return reg.test(num) && reg.exec(num)[1] * 100
 }
 
 /**
- * 数字截取 6位数字  如果后2位都是0
+ * 页面权限 -> 模块权限
+ * 数字截取 6位数字 前面2个两位都不能为00 后2位必须为0 若满足返回中间两位替换为00
  * @param num 数字
  */
 export function num2To1(num) {
-  const reg = /^[0-9]{6}$/
-  return reg.test(num) && num % 100 === 0
-    ? ~~(num / 10000) * 10000
-    : false
+  const reg = /^([1-9]\d)[1-9]\d0{2}$/
+  return reg.test(num) && reg.exec(num)[1] * 10000
 }
 
 /**
