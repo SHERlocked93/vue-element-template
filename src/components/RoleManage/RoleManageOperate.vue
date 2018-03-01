@@ -362,10 +362,11 @@
        */
       confirmOperate() {
         let checkedKeys = this.$refs['treeEdit'].getCheckedKeys()
+        this.sysconfigId && checkedKeys.push(this.sysconfigId)
         checkedKeys = checkedKeys
           .filter((T, idx, arr) => Utils.num2To1(T) ? arr.includes(Utils.num2To1(T)) : true)
           .filter((T, idx, arr) => Utils.num3To2(T) ? arr.includes(Utils.num3To2(T)) : true)
-          .concat([...this.defaultCheckedKeys, this.sysconfigId])
+          .concat(this.defaultCheckedKeys)
         this.roleInfo.menuIds = [...new Set(checkedKeys)].sort()
         
         if (this.operateType === 'edit') {                                                 // 编辑角色
