@@ -1,5 +1,5 @@
 'use strict'
 module.exports = {
   NODE_ENV: '"production"',
-  BASE_API: '"http://172.16.15.154:18080/mes-web/"'
+  BASE_API: '"https://easy-mock.com/mock/59e6f5dd34be4b482ca23abe/pdspa"'    // easy-mock
 }
