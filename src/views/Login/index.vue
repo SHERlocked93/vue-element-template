@@ -1,6 +1,6 @@
 /**
 * 创建于 2018/2/9
-* 作者: Qianyu
+* 作者: SHERlocked93
 * 功能: 登陆页面
 */
 
@@ -89,8 +89,8 @@
         cardId: '',
         focusState: false,
         loginForm: {
-          userName: Cookies.get('LastLoginUsername') || '',
-          password: ''
+          userName: Cookies.get('LastLoginUsername') || 'admin',
+          password: '888888'
         },
         loginRules: {
           userName: [{ required: true, trigger: 'blur', validator: checkUsername }],
