@@ -1,0 +1,15 @@
+[ignore]
+.*/node_modules/.*
+<PROJECT_ROOT>/build/.*
+<PROJECT_ROOT>/config/.*
+
+[include]
+
+[libs]
+
+[lints]
+
+[options]
+module.file_ext=.js
+
+[strict]
