@@ -271,7 +271,7 @@
         
         .el-button {
           box-shadow: 2px 2px 4px 0 rgba(42, 74, 215, 0.35);
-          width: 80px;
+          width: 120px;
           letter-spacing: 1px;
           &:nth-of-type(1) {
             margin-right: 35px;

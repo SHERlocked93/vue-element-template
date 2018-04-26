@@ -35,6 +35,16 @@ export const asyncRouterMap = [
     children: [{ name: '首页', path: 'homepage', component: _import('Homepage/index') }]
   },
   {
+    path: '/page1',
+    component: Layout,
+    redirect: 'userinfo',
+    name: 'Page1',
+    icon: 'el-icon-my-icon-admin',
+    children: [
+      { name: 'hehe', path: 'hehe', component: _import('Page1/Hehe') }
+    ]
+  },
+  {
     path: '/sysconfig',
     component: Layout,
     redirect: 'userinfo',

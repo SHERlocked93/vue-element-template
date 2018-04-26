@@ -13,8 +13,8 @@
         }
       }
     ],
-    "stage-2",
-    "flow"
+    "es2015",
+    "stage-2"
   ],
   "plugins": [
     "transform-vue-jsx",
